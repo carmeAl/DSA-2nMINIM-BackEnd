@@ -138,4 +138,6 @@ public class JugadorService {
             return Response.status(201).entity(j).build();
         }
     }
+
+
 }
