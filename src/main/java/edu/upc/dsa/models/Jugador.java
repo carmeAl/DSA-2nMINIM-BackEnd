@@ -15,7 +15,6 @@ public class Jugador {
     }
 
 
-
     public Jugador (String nombre, String password, String email, String pais, double dinero) {
         this();
         this.setNombre(nombre);
