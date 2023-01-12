@@ -138,4 +138,23 @@ public class JugadorService {
             return Response.status(201).entity(j).build();
         }
     }
+
+    @GET
+    @ApiOperation(value = "Get ranking jugadores", notes = "hola")
+    @ApiResponses(value = {
+            @ApiResponse(code = 201, message = "Successful", response = Jugador.class, responseContainer="List"),
+            @ApiResponse(code = 404, message = "ERROR")
+    })
+    @Path("/ranking")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getRanking(){
+        List<Jugador> ranking = jm.getRankingJugadores();
+
+        GenericEntity<List<Jugador>> entity = new GenericEntity<List<Jugador>>(ranking) {};
+        if (ranking.size() > 0) {
+            return Response.status(201).entity(entity).build();
+        }
+        else
+            return Response.status(404).build();
+    }
 }

@@ -11,6 +11,8 @@ import java.util.List;
 public interface JugadorManager {
     public List<Jugador> getAllJugadores ();
     //public Jugador getJugador (String id);
+
+    public List<Jugador> getRankingJugadores();
     public Jugador searchJugadorByName (String nombre);
     public Jugador logInJugador (LogIn logInParams);
     public Jugador registroJugador (Registro registro);
