@@ -151,7 +151,7 @@ public class JugadorService {
     @Consumes(MediaType.APPLICATION_JSON)
 
     public Response denuncia(Denuncia denunciapar) {
-        if (denunciapar.getDate()=="" || denunciapar.getInformer()==""|| denunciapar.getMessage()=="") {
+        if (denunciapar.getDate().equals("") || denunciapar.getInformer().equals("")|| denunciapar.getMessage().equals("")) {
             return Response.status(500).build();
         } else {
             logger.info("--------DENUNCIA--------");
