@@ -3,6 +3,7 @@ package edu.upc.dsa.services;
 import edu.upc.dsa.DAO.IngredienteManagerImpl;
 import edu.upc.dsa.DAO.JugadorManager;
 import edu.upc.dsa.DAO.JugadorManagerImpl;
+import edu.upc.dsa.models.Denuncia;
 import edu.upc.dsa.models.Jugador;
 import edu.upc.dsa.models.LogIn;
 import edu.upc.dsa.models.Registro;
@@ -136,6 +137,29 @@ public class JugadorService {
             return Response.status(404).build();
         } else {
             return Response.status(201).entity(j).build();
+        }
+    }
+
+    @POST
+    @ApiOperation(value = "registrar un denuncia", notes = "hola")
+    @ApiResponses(value = {
+            @ApiResponse(code = 201, message = "Successful"),
+            @ApiResponse(code = 500, message = "Validation Error"),
+
+    })
+    @Path("/issue")
+    @Consumes(MediaType.APPLICATION_JSON)
+
+    public Response denuncia(Denuncia denunciapar) {
+        if (denunciapar.getDate().equals("") || denunciapar.getInformer().equals("")|| denunciapar.getMessage().equals("")) {
+            return Response.status(500).build();
+        } else {
+            logger.info("--------DENUNCIA--------");
+            logger.info("date: "+ denunciapar.getDate());
+            logger.info("informer: "+ denunciapar.getInformer());
+            logger.info("message: "+ denunciapar.getMessage());
+            logger.info("------------------------");
+            return Response.status(201).build();
         }
     }
 
