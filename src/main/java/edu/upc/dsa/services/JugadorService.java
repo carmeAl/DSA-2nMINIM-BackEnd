@@ -172,4 +172,6 @@ public class JugadorService {
         else
             return Response.status(404).build();
     }
+
+
 }
