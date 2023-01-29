@@ -162,6 +162,24 @@ public class JugadorManagerImpl implements JugadorManager{
         return null;
     }
 
+    @Override
+    public List<Jugador> getRankingJugadores(){
+        Session session = null;
+        List<Jugador> milistaju = null;
+        Jugador j = new Jugador();
+        try{
+            session = FactorySession.openSession();
+            milistaju = (List<Jugador>) session.findAll(jugadores);
+        }
+        catch (Exception e){
+
+        }
+        finally {
+            session.close();
+        }
+        return milistaju;
+    }
+
 
     @Override
     public Jugador registroJugador(Registro registro)  {
@@ -208,6 +226,7 @@ public class JugadorManagerImpl implements JugadorManager{
             }
             return null;
         }
+
 
     @Override
     public Jugador getJugadorById( int idJ) {
